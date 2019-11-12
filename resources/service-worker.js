@@ -9,20 +9,27 @@
  */
 // ------------------------------------------------------------------------
 
-const APP_NAME = '{{$appName}}';
-const THEME_NAME = '{{$themeName}}';
-const CACHE_NAME = '{{$cacheName}}';
+const APP_NAME = '{{ $appName }}';
+const CACHE_NAME = APP_NAME + '_cache';
+const THEME_NAME = '{{ $themeName }}';
 
 self.addEventListener('install', function(event) {
     console.info('[' + APP_NAME + '] Installing Service Worker ...', event);
     event.waitUntil(
         caches.open(CACHE_NAME).then(function(cache) {
-            cache.addAll([
-                '/themes/' + THEME_NAME + '/theme.css',
-                '/assets/app.css',
-                '/themes/' + THEME_NAME + '/theme.js',
-                '/assets/app.js'
-            ]);
+            if(THEME_NAME === '') {
+                cache.addAll([
+                    '/assets/app.css',
+                    '/assets/app.js'
+                ]);
+            } else {
+                cache.addAll([
+                    '/themes/' + THEME_NAME + '/theme.css',
+                    '/assets/app.css',
+                    '/themes/' + THEME_NAME + '/theme.js',
+                    '/assets/app.js'
+                ]);
+            }
         })
     );
 });
