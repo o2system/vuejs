@@ -1,4 +1,4 @@
-![alt text](https://www.o2system.id/assets/img/covers/cover-o2system-pwa-vuejs.png "O2System PWA VueJS")
+![alt text](https://repository-images.githubusercontent.com/217445075/9d7c2080-5c9d-11ea-988d-50af20f9bd1c "O2System PWA VueJS Project Boilerplate")
 
 
 [![Build Status](https://travis-ci.org/o2system/vuejs.svg?branch=master)](https://travis-ci.org/o2system/vuejs)
